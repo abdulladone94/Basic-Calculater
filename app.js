@@ -6,54 +6,27 @@ var mul = document.getElementById("multiply");
 var div = document.getElementById("divide");
 
 add.addEventListener("click", () => {
-  handlePlus();
+  handleOperatorClicked("+", "Plus wrong entry");
 });
 eq.addEventListener("click", () => {
   handleEqual();
 });
 sub.addEventListener("click", () => {
-  handleMinus();
+  handleOperatorClicked("-", "Minus wrong entry");
 });
 mul.addEventListener("click", () => {
-  handleMultiply();
+  handleOperatorClicked("*", "Multiply wrong entry");
 });
 div.addEventListener("click", () => {
-  handleDivide();
+  handleOperatorClicked("/", "Division wrong entry");
 });
 
-const handlePlus = () => {
+const handleOperatorClicked = (operator, errorMessage) => {
   var y = displayValue.value;
   if (!isNaN(y)) {
-    displayValue.value = y + "+";
+    displayValue.value = y + operator;
   } else {
-    alert("Plus wrong entry");
-  }
-};
-
-const handleMinus = () => {
-  var minus = displayValue.value;
-  if (!isNaN(minus)) {
-    displayValue.value = minus + "-";
-  } else {
-    alert("Minus wrong entry");
-  }
-};
-
-const handleMultiply = () => {
-  var mult = displayValue.value;
-  if (!isNaN(mult)) {
-    displayValue.value = mult + "*";
-  } else {
-    alert("Multiply wrong entry");
-  }
-};
-
-const handleDivide = () => {
-  var divi = displayValue.value;
-  if (!isNaN(divi)) {
-    displayValue.value = divi + "/";
-  } else {
-    alert("Divide wrong entry");
+    alert(errorMessage);
   }
 };
 

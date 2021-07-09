@@ -1,14 +1,13 @@
 const display = document.getElementById("txt1");
-var add = document.getElementById("add");
-var eq = document.getElementById("equal");
-var sub = document.getElementById("subtract");
-var mul = document.getElementById("multiply");
-var div = document.getElementById("divide");
+const add = document.getElementById("add");
+const eq = document.getElementById("equal");
+const sub = document.getElementById("subtract");
+const mul = document.getElementById("multiply");
+const div = document.getElementById("divide");
 
 const handleOperatorClicked = (operator, errorMessage) => {
-  var y = display.value;
   if (!isNaN(y)) {
-    display.value = y + operator;
+    display.value = display.value + operator;
   } else {
     alert(errorMessage);
   }
@@ -47,15 +46,19 @@ const handleEqual = () => {
 add.addEventListener("click", () => {
   handleOperatorClicked("+", "Plus wrong entry");
 });
+
 eq.addEventListener("click", () => {
   handleEqual();
 });
+
 sub.addEventListener("click", () => {
   handleOperatorClicked("-", "Minus wrong entry");
 });
+
 mul.addEventListener("click", () => {
   handleOperatorClicked("*", "Multiply wrong entry");
 });
+
 div.addEventListener("click", () => {
   handleOperatorClicked("/", "Division wrong entry");
 });

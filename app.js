@@ -5,22 +5,6 @@ var sub = document.getElementById("subtract");
 var mul = document.getElementById("multiply");
 var div = document.getElementById("divide");
 
-add.addEventListener("click", () => {
-  handleOperatorClicked("+", "Plus wrong entry");
-});
-eq.addEventListener("click", () => {
-  handleEqual();
-});
-sub.addEventListener("click", () => {
-  handleOperatorClicked("-", "Minus wrong entry");
-});
-mul.addEventListener("click", () => {
-  handleOperatorClicked("*", "Multiply wrong entry");
-});
-div.addEventListener("click", () => {
-  handleOperatorClicked("/", "Division wrong entry");
-});
-
 const handleOperatorClicked = (operator, errorMessage) => {
   var y = displayValue.value;
   if (!isNaN(y)) {
@@ -48,3 +32,19 @@ const handleEqual = incldA => {
     displayValue.value = parseFloat(firstNo) / parseFloat(secondNo);
   }
 };
+
+add.addEventListener("click", () => {
+  handleOperatorClicked("+", "Plus wrong entry");
+});
+eq.addEventListener("click", () => {
+  handleEqual();
+});
+sub.addEventListener("click", () => {
+  handleOperatorClicked("-", "Minus wrong entry");
+});
+mul.addEventListener("click", () => {
+  handleOperatorClicked("*", "Multiply wrong entry");
+});
+div.addEventListener("click", () => {
+  handleOperatorClicked("/", "Division wrong entry");
+});

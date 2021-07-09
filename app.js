@@ -22,56 +22,56 @@ div.addEventListener("click", () => {
 });
 
 const handlePlus = () => {
-  var y = displayValue;
+  var y = displayValue.value;
   if (!isNaN(y)) {
-    displayValue = y + "+";
+    displayValue.value = y + "+";
   } else {
     alert("Plus wrong entry");
   }
 };
 
 const handleMinus = () => {
-  var minus = displayValue;
+  var minus = displayValue.value;
   if (!isNaN(minus)) {
-    displayValue = minus + "-";
+    displayValue.value = minus + "-";
   } else {
     alert("Minus wrong entry");
   }
 };
 
 const handleMultiply = () => {
-  var mult = displayValue;
+  var mult = displayValue.value;
   if (!isNaN(mult)) {
-    displayValue = mult + "*";
+    displayValue.value = mult + "*";
   } else {
     alert("Multiply wrong entry");
   }
 };
 
 const handleDivide = () => {
-  var divi = displayValue;
+  var divi = displayValue.value;
   if (!isNaN(divi)) {
-    displayValue = divi + "/";
+    displayValue.value = divi + "/";
   } else {
     alert("Divide wrong entry");
   }
 };
 
 const handleEqual = incldA => {
-  var eq = displayValue.split(/[-,+,/,*]/);
-  var incldA = displayValue.includes("+");
-  var incldS = displayValue.includes("-");
-  var incldM = displayValue.includes("*");
-  var incldD = displayValue.includes("/");
+  var eq = displayValue.value.split(/[-,+,/,*]/);
+  var incldA = displayValue.value.includes("+");
+  var incldS = displayValue.value.includes("-");
+  var incldM = displayValue.value.includes("*");
+  var incldD = displayValue.value.includes("/");
   var firstNo = eq[0];
   var secondNo = eq[1];
   if (incldA === true) {
-    displayValue = parseFloat(firstNo) + parseFloat(secondNo);
+    displayValue.value = parseFloat(firstNo) + parseFloat(secondNo);
   } else if (incldS === true) {
-    displayValue = parseFloat(firstNo) - parseFloat(secondNo);
+    displayValue.value = parseFloat(firstNo) - parseFloat(secondNo);
   } else if (incldM === true) {
-    displayValue = parseFloat(firstNo) * parseFloat(secondNo);
+    displayValue.value = parseFloat(firstNo) * parseFloat(secondNo);
   } else if (incldD === true) {
-    displayValue = parseFloat(firstNo) / parseFloat(secondNo);
+    displayValue.value = parseFloat(firstNo) / parseFloat(secondNo);
   }
 };

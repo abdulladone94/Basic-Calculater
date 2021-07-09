@@ -14,22 +14,33 @@ const handleOperatorClicked = (operator, errorMessage) => {
   }
 };
 
-const handleEqual = incldA => {
-  var eq = display.value.split(/[-,+,/,*]/);
-  var incldA = display.value.includes("+");
-  var incldS = display.value.includes("-");
-  var incldM = display.value.includes("*");
-  var incldD = display.value.includes("/");
-  var firstNo = eq[0];
-  var secondNo = eq[1];
-  if (incldA === true) {
+const handleEqual = () => {
+  const inputArray = display.value.split(/[-,+,/,*]/);
+  const isPlusClicked = display.value.includes("+");
+  const isMinusClicked = display.value.includes("-");
+  const isMultiplyClicked = display.value.includes("*");
+  const isDivisionClicked = display.value.includes("/");
+  const firstNo = inputArray[0];
+  const secondNo = inputArray[1];
+
+  if (isPlusClicked) {
     display.value = parseFloat(firstNo) + parseFloat(secondNo);
-  } else if (incldS === true) {
+    return;
+  }
+
+  if (isMinusClicked) {
     display.value = parseFloat(firstNo) - parseFloat(secondNo);
-  } else if (incldM === true) {
+    return;
+  }
+
+  if (isMultiplyClicked) {
     display.value = parseFloat(firstNo) * parseFloat(secondNo);
-  } else if (incldD === true) {
+    return;
+  }
+
+  if (isDivisionClicked) {
     display.value = parseFloat(firstNo) / parseFloat(secondNo);
+    return;
   }
 };
 

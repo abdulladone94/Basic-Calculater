@@ -1,46 +1,64 @@
-var ad = document.getElementById("add");
-var sub = document.getElementById("subtract");
-var mul = document.getElementById("multiply");
-var div = document.getElementById("divide");
+const display = document.getElementById("txt1");
+const add = document.getElementById("add");
+const eq = document.getElementById("equal");
+const sub = document.getElementById("subtract");
+const mul = document.getElementById("multiply");
+const div = document.getElementById("divide");
 
-ad.addEventListener("click", () => {
-  handlePlus();
+const handleOperatorClicked = (operator, errorMessage) => {
+  if (!isNaN(y)) {
+    display.value = display.value + operator;
+  } else {
+    alert(errorMessage);
+  }
+};
+
+const handleEqual = () => {
+  const inputArray = display.value.split(/[-,+,/,*]/);
+  const isPlusClicked = display.value.includes("+");
+  const isMinusClicked = display.value.includes("-");
+  const isMultiplyClicked = display.value.includes("*");
+  const isDivisionClicked = display.value.includes("/");
+  const firstNo = inputArray[0];
+  const secondNo = inputArray[1];
+
+  if (isPlusClicked) {
+    display.value = parseFloat(firstNo) + parseFloat(secondNo);
+    return;
+  }
+
+  if (isMinusClicked) {
+    display.value = parseFloat(firstNo) - parseFloat(secondNo);
+    return;
+  }
+
+  if (isMultiplyClicked) {
+    display.value = parseFloat(firstNo) * parseFloat(secondNo);
+    return;
+  }
+
+  if (isDivisionClicked) {
+    display.value = parseFloat(firstNo) / parseFloat(secondNo);
+    return;
+  }
+};
+
+add.addEventListener("click", () => {
+  handleOperatorClicked("+", "Plus wrong entry");
 });
+
+eq.addEventListener("click", () => {
+  handleEqual();
+});
+
 sub.addEventListener("click", () => {
-  handleMinus();
-});
-mul.addEventListener("click", () => {
-  handleMultiply();
-});
-div.addEventListener("click", () => {
-  handleDivide();
+  handleOperatorClicked("-", "Minus wrong entry");
 });
 
-const handlePlus = (y, z) => {
-  var y = document.getElementById("txt1").value;
-  var z = document.getElementById("txt2").value;
-  var x = +y + +z;
-  document.getElementById("ans").value = x;
-  console.log(x);
-};
-const handleMinus = (y, z) => {
-  var y = document.getElementById("txt1").value;
-  var z = document.getElementById("txt2").value;
-  var x = +y - +z;
-  document.getElementById("ans").value = x;
-  console.log(x);
-};
-const handleMultiply = (y, z) => {
-  var y = document.getElementById("txt1").value;
-  var z = document.getElementById("txt2").value;
-  var x = +y * +z;
-  document.getElementById("ans").value = x;
-  console.log(x);
-};
-const handleDivide = (y, z) => {
-  var y = document.getElementById("txt1").value;
-  var z = document.getElementById("txt2").value;
-  var x = +y / +z;
-  document.getElementById("ans").value = x;
-  console.log(x);
-};
+mul.addEventListener("click", () => {
+  handleOperatorClicked("*", "Multiply wrong entry");
+});
+
+div.addEventListener("click", () => {
+  handleOperatorClicked("/", "Division wrong entry");
+});

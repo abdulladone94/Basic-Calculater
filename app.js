@@ -56,23 +56,6 @@ const handleDivide = () => {
   }
 };
 
-// const handleEqual = () => {
-//   var z = document.getElementById("txt1").value.split(/[+,-]/);
-//   var firstNo = z[0];
-//   var secondNo = z[1];
-//   console.log(firstNo);
-//   console.log(secondNo);
-//   if (!isNaN(firstNo) && !isNaN(secondNo)) {
-//     document.getElementById("txt1").value = parseFloat(firstNo) + parseFloat(secondNo);
-//     // document.getElementById("txt1").value = parseFloat(firstNo) - parseFloat(secondNo);
-//   } else if (!isNaN(secondNo)) {
-//     document.getElementById("txt1").value = firstNo  ;
-//     alert('Entry Issue')
-//   } else  {
-//     alert('Enter Nos only')
-//   }
-// };
-
 const handleEqual = (incldA) => {
   var eq = document.getElementById("txt1").value.split(/[-,+,/,*]/);
   var incldA = document.getElementById("txt1").value.includes("+");
@@ -81,8 +64,6 @@ const handleEqual = (incldA) => {
   var incldD = document.getElementById("txt1").value.includes("/");
   var firstNo = eq[0];
   var secondNo = eq[1];
-  console.log(firstNo);
-  console.log(secondNo);
   if (incldA === true) {
     document.getElementById("txt1").value =
       parseFloat(firstNo) + parseFloat(secondNo);

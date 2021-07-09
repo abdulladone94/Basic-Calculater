@@ -1,10 +1,11 @@
-var ad = document.getElementById("add");
+const displayValue = document.getElementById("txt1");
+var add = document.getElementById("add");
 var eq = document.getElementById("equal");
 var sub = document.getElementById("subtract");
 var mul = document.getElementById("multiply");
 var div = document.getElementById("divide");
 
-ad.addEventListener("click", () => {
+add.addEventListener("click", () => {
   handlePlus();
 });
 eq.addEventListener("click", () => {
@@ -21,60 +22,56 @@ div.addEventListener("click", () => {
 });
 
 const handlePlus = () => {
-  var y = document.getElementById("txt1").value;
+  var y = displayValue;
   if (!isNaN(y)) {
-    document.getElementById("txt1").value = y + "+";
+    displayValue = y + "+";
   } else {
     alert("Plus wrong entry");
   }
 };
 
 const handleMinus = () => {
-  var minus = document.getElementById("txt1").value;
+  var minus = displayValue;
   if (!isNaN(minus)) {
-    document.getElementById("txt1").value = minus + "-";
+    displayValue = minus + "-";
   } else {
     alert("Minus wrong entry");
   }
 };
 
 const handleMultiply = () => {
-  var mult = document.getElementById("txt1").value;
+  var mult = displayValue;
   if (!isNaN(mult)) {
-    document.getElementById("txt1").value = mult + "*";
+    displayValue = mult + "*";
   } else {
     alert("Multiply wrong entry");
   }
 };
 
 const handleDivide = () => {
-  var divi = document.getElementById("txt1").value;
+  var divi = displayValue;
   if (!isNaN(divi)) {
-    document.getElementById("txt1").value = divi + "/";
+    displayValue = divi + "/";
   } else {
     alert("Divide wrong entry");
   }
 };
 
-const handleEqual = (incldA) => {
-  var eq = document.getElementById("txt1").value.split(/[-,+,/,*]/);
-  var incldA = document.getElementById("txt1").value.includes("+");
-  var incldS = document.getElementById("txt1").value.includes("-");
-  var incldM = document.getElementById("txt1").value.includes("*");
-  var incldD = document.getElementById("txt1").value.includes("/");
+const handleEqual = incldA => {
+  var eq = displayValue.split(/[-,+,/,*]/);
+  var incldA = displayValue.includes("+");
+  var incldS = displayValue.includes("-");
+  var incldM = displayValue.includes("*");
+  var incldD = displayValue.includes("/");
   var firstNo = eq[0];
   var secondNo = eq[1];
   if (incldA === true) {
-    document.getElementById("txt1").value =
-      parseFloat(firstNo) + parseFloat(secondNo);
+    displayValue = parseFloat(firstNo) + parseFloat(secondNo);
   } else if (incldS === true) {
-    document.getElementById("txt1").value =
-      parseFloat(firstNo) - parseFloat(secondNo);
+    displayValue = parseFloat(firstNo) - parseFloat(secondNo);
   } else if (incldM === true) {
-    document.getElementById("txt1").value =
-      parseFloat(firstNo) * parseFloat(secondNo);
+    displayValue = parseFloat(firstNo) * parseFloat(secondNo);
   } else if (incldD === true) {
-    document.getElementById("txt1").value =
-      parseFloat(firstNo) / parseFloat(secondNo);
-  } 
+    displayValue = parseFloat(firstNo) / parseFloat(secondNo);
+  }
 };
